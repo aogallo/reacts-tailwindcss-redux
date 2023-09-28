@@ -1,19 +1,19 @@
-import "./App.css";
-import Button from "./components/Button";
+import './App.css'
+import AccordionPage from './pages/AccordionPage'
+import ButtonPage from './pages/ButtonPage'
+import DropdownPage from './pages/DropdownPage'
 
 function App() {
   return (
-    <>
-      <h1>Learning Reactjs</h1>
-      <div>
-        <Button>Click me!!</Button>
-        <Button>Buy now!</Button>
-        <Button>See Deal!</Button>
-        <Button>Hide Ads!</Button>
-        <Button>Something</Button>
-      </div>
-    </>
-  );
+    <div className='container'>
+      <h1 className='text-2xl text-center'>
+        Learning Reactjs with Tailwindcss
+      </h1>
+      <DropdownPage />
+      <ButtonPage />
+      <AccordionPage />
+    </div>
+  )
 }
 
-export default App;
+export default App
