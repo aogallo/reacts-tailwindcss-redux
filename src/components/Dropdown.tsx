@@ -1,5 +1,6 @@
 import { FunctionComponent, useState } from 'react'
 import { GoChevronDown, GoChevronLeft } from 'react-icons/go'
+import Panel from './Panel'
 
 type Option = {
   label: string
@@ -42,8 +43,8 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
 
   return (
     <div className='w-48 relative'>
-      <div
-        className='flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full'
+      <Panel
+        className='flex justify-between items-center cursor-pointer '
         onClick={handleClick}
       >
         {value || 'Select...'}
@@ -52,12 +53,8 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
         ) : (
           <GoChevronLeft className='text-lg' />
         )}
-      </div>
-      {isOpen && (
-        <div className='absolute top-full border rounded p-3 shadow bg-white w-full'>
-          {renderOptions}
-        </div>
-      )}
+      </Panel>
+      {isOpen && <Panel className='absolute top-full '>{renderOptions}</Panel>}
     </div>
   )
 }
