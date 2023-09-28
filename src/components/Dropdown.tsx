@@ -8,13 +8,13 @@ type Option = {
 type DropdownProps = {
   options: Option[]
   selection: string
-  onSelect: (option: string) => void
+  onChange: (option: string) => void
 }
 
 const Dropdown: FunctionComponent<DropdownProps> = ({
   options,
   selection,
-  onSelect,
+  onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -24,7 +24,7 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
 
   const handleOptionClick = (option: Option) => {
     setIsOpen(false)
-    onSelect(option.label)
+    onChange(option.label)
   }
 
   const renderOptions = options.map((option) => {

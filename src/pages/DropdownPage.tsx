@@ -27,7 +27,7 @@ const DropdownPage = () => {
     <div>
       <Dropdown
         selection={selection}
-        onSelect={handleSelect}
+        onChange={handleSelect}
         options={options}
       />
     </div>
