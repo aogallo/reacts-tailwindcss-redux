@@ -23,6 +23,10 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
 
   useEffect(() => {
     const handler = (event: { target: any }) => {
+      if (!divEl.current) {
+        return
+      }
+
       if (!divEl.current?.contains(event.target)) {
         setIsOpen(false)
       }
