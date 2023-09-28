@@ -5,8 +5,8 @@ import DropdownPage from './pages/DropdownPage'
 
 function App() {
   return (
-    <div className='container'>
-      <h1 className='text-2xl text-center'>
+    <div className='container mx-auto mt-1'>
+      <h1 className='text-2xl text-center m-3'>
         Learning Reactjs with Tailwindcss
       </h1>
       <DropdownPage />

@@ -1,4 +1,5 @@
 import { FunctionComponent, useState } from 'react'
+import { GoChevronDown, GoChevronLeft } from 'react-icons/go'
 
 type Option = {
   label: string
@@ -7,13 +8,13 @@ type Option = {
 
 type DropdownProps = {
   options: Option[]
-  selection: string
+  value: string
   onChange: (option: string) => void
 }
 
 const Dropdown: FunctionComponent<DropdownProps> = ({
   options,
-  selection,
+  value,
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,16 +30,34 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
 
   const renderOptions = options.map((option) => {
     return (
-      <div key={option.value} onClick={() => handleOptionClick(option)}>
+      <div
+        className='hover:bg-sky-100 rounded cursor-pointer p-1'
+        key={option.value}
+        onClick={() => handleOptionClick(option)}
+      >
         {option.label}
       </div>
     )
   })
 
   return (
-    <div>
-      <div onClick={handleClick}>{selection || 'Select...'}</div>
-      {isOpen && <div>{renderOptions}</div>}
+    <div className='w-48 relative'>
+      <div
+        className='flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full'
+        onClick={handleClick}
+      >
+        {value || 'Select...'}
+        {isOpen ? (
+          <GoChevronDown className='text-lg' />
+        ) : (
+          <GoChevronLeft className='text-lg' />
+        )}
+      </div>
+      {isOpen && (
+        <div className='absolute top-full border rounded p-3 shadow bg-white w-full'>
+          {renderOptions}
+        </div>
+      )}
     </div>
   )
 }
