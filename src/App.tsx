@@ -1,9 +1,9 @@
-import './App.css'
 import Route from './components/Route'
 import Sidebar from './components/Sidebar'
 import AccordionPage from './pages/AccordionPage'
 import ButtonPage from './pages/ButtonPage'
 import DropdownPage from './pages/DropdownPage'
+import ModalPage from './pages/ModalPage'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <h1 className='text-2xl text-center m-3'>
           Learning Reactjs with Tailwindcss
         </h1>
-        <Route path='/'>
+        <Route path='/dropdown'>
           <DropdownPage />
         </Route>
         <Route path='/buttons'>
@@ -21,6 +21,9 @@ function App() {
         </Route>
         <Route path='/accordion'>
           <AccordionPage />
+        </Route>
+        <Route path='/modal'>
+          <ModalPage />
         </Route>
       </div>
     </div>
