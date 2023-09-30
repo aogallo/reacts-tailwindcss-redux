@@ -18,6 +18,10 @@ const Sidebar = () => {
       label: 'Modal',
       path: '/modal',
     },
+    {
+      label: 'Table',
+      path: '/table',
+    },
   ]
 
   const renderedLinks = links.map((link) => {
