@@ -10,15 +10,17 @@ const TablePage = () => {
 
   const config = [
     { label: 'Name', render: (fruit: RowType) => fruit.name },
-    { label: 'Color', render: (fruit: RowType) => 
-    <div className={`p-3 m-2 ${fruit.color}`}></div>
- },
-  { label: 'Score', render: (fruit: RowType) => fruit.score },
+    { label: 'Color', render: (fruit: RowType) => <div className={`p-3 m-2 ${fruit.color}`}></div> },
+    { label: 'Score', render: (fruit: RowType) => fruit.score },
   ]
 
-return <div>
-  <Table data={fruits} config={config} />
-</div>
+  const keyFn = (fruit) => {
+    return fruit.name
+  }
+
+  return <div>
+    <Table data={fruits} config={config} keyFn={keyFn} />
+  </div>
 }
 
 export default TablePage

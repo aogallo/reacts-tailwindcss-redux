@@ -14,18 +14,19 @@ type ConfigType = {
 type TableProps = {
   data: RowType[]
   config: ConfigType[]
+  keyFn?: (row: RowType) => string | number
 }
 
-const Table = ({ data, config }: TableProps) => {
-  const renderedHeaders = config.map((column) => <th>{column.label}</th>)
+const Table = ({ data, config, keyFn }: TableProps) => {
+  const renderedHeaders = config.map((column) => <th key={column.label}>{column.label}</th>)
 
-  const renderedRows = data.map((fruit) => {
+  const renderedRows = data.map((rowData) => {
     const renderedCells = config.map((column) => {
-      return <td key={column.label} className="p-3">{column.render?.(fruit)}</td>
+      return <td key={column.label} className="p-3">{column.render?.(rowData)}</td>
     })
 
     return (
-      <tr key={fruit.name} className="border-b">
+      <tr key={keyFn?.(rowData)} className="border-b">
         {renderedCells}
       </tr>
     )
