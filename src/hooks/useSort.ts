@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ConfigType, RowType } from '../components/Table'
 
 export default function useSort(data: RowType[], config: ConfigType[]) {
-  const [sortOrder, setSortOrder] = useState()<string | null>(null)
+  const [sortOrder, setSortOrder] = useState<string | null>(null)
   const [sortBy, setSortBy] = useState<string | null>(null)
 
   const setSortColumn = (label: string) => {

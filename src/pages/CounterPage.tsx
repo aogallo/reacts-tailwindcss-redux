@@ -44,6 +44,7 @@ const reducer = (state: CounterStateType, action: ActionType) => {
     return {
       ...state,
       count: state.count + action.payload,
+      valueToAdd: 0,
     }
   }
 
@@ -93,8 +94,10 @@ function CounterPage({ initialCount = 0 }: CountProps) {
       </div>
 
       <form onSubmit={handleSubmit}>
-        <label>Add a lot!</label>
+        <label htmlFor='valueToAdd'>Add a lot!</label>
         <input
+          id='valueToAdd'
+          name='valueToAdd'
           type='number'
           value={state.valueToAdd}
           onChange={handleChange}
