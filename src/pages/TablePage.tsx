@@ -1,5 +1,5 @@
 import SortableTable from '../components/SortableTable'
-import Table, { RowType } from '../components/Table'
+import { ConfigType, RowType } from '../components/Table'
 
 const TablePage = () => {
   const fruits = [
@@ -9,16 +9,16 @@ const TablePage = () => {
     { name: 'Lime', color: 'bg-green-500', score: 1 },
   ]
 
-  const config = [
+  const config: ConfigType[] = [
     {
       label: 'Name',
-      header: () => <th className='bg-red-500'>Name</th>,
+      header: () => <th>Name</th>,
       sortValue: (fruit: RowType) => fruit.name,
       render: (fruit: RowType) => fruit.name,
     },
     {
       label: 'Color',
-      header: () => <th className='bg-red-500'>Color</th>,
+      header: () => <th>Color</th>,
       render: (fruit: RowType) => (
         <div className={`p-3 m-2 ${fruit.color}`}></div>
       ),
@@ -26,9 +26,14 @@ const TablePage = () => {
     },
     {
       label: 'Score',
-      header: () => <th className='bg-red-500'>Score</th>,
+      header: () => <th>Score</th>,
       sortValue: (fruit: RowType) => fruit.score,
       render: (fruit: RowType) => fruit.score,
+    },
+    {
+      label: 'Score plus 2',
+      sortValue: (fruit: RowType) => fruit.score + 2,
+      render: (fruit: RowType) => fruit.score + 2,
     },
   ]
 
@@ -38,7 +43,6 @@ const TablePage = () => {
 
   return (
     <div>
-      <Table data={fruits} config={config} keyFn={keyFn} />
       <SortableTable data={fruits} config={config} keyFn={keyFn} />
     </div>
   )
