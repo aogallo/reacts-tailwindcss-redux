@@ -41,11 +41,7 @@ const TablePage = () => {
     return fruit.name
   }
 
-  return (
-    <div>
-      <SortableTable data={fruits} config={config} keyFn={keyFn} />
-    </div>
-  )
+  return <SortableTable data={fruits} config={config} keyFn={keyFn} />
 }
 
 export default TablePage
